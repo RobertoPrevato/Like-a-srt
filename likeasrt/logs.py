@@ -1,8 +1,8 @@
 import logging
 import logging.handlers
 from datetime import datetime
-from essentials.folders import ensure_folder
 
+from essentials.folders import ensure_folder
 
 logger = None
 

@@ -1,10 +1,11 @@
-import sys
-import click
 import logging
-from . import version
-from .commands.example import example_command
-from .logs import get_app_logger
+import sys
 
+import click
+
+from . import version
+from .commands.srt import generate_srt_command
+from .logs import get_app_logger
 
 sys.path.append(".")
 
@@ -16,9 +17,9 @@ sys.path.append(".")
 @click.version_option(version=version)
 def main(verbose):
     """
-    Example CLI.
+    CLI to generate subtitles in srt format from audio files, using Azure Speech.
 
-    Roberto Prevato <roberto.prevato@gmail.com>
+    Roberto Prevato https://github.com/RobertoPrevato/Like-a-srt
     """
     logger = get_app_logger()
     if verbose:
@@ -27,4 +28,4 @@ def main(verbose):
     logger.debug("Running in --verbose mode")
 
 
-main.add_command(example_command)
+main.add_command(generate_srt_command)

@@ -1,4 +1,4 @@
-from foo import version
+from likeasrt import version
 from setuptools import setup
 
 
@@ -8,7 +8,7 @@ def readme():
 
 
 setup(
-    name="foo",
+    name="like-a-srt",
     version=version,
     description="Project template",
     long_description=readme(),
@@ -17,6 +17,7 @@ setup(
         "Development Status :: 5 - Production/Stable",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.9",
         "Operating System :: OS Independent",
     ],
     url="https://github.com/RobertoPrevato/PythonTemplate",
@@ -24,8 +25,14 @@ setup(
     author_email="roberto.prevato@gmail.com",
     keywords="template",
     license="MIT",
-    packages=["foo"],
-    entry_points={"console_scripts": ["foo=foo.main:main"]},
-    install_requires=["click", "essentials"],
+    packages=["likeasrt"],
+    entry_points={
+        "console_scripts": ["like-a-srt=likeasrt.main:main", "las=likeasrt.main:main"]
+    },
+    install_requires=[
+        "click",
+        "essentials",
+        "azure-cognitiveservices-speech==1.19.0",
+    ],
     include_package_data=True,
 )
