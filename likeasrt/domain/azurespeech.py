@@ -91,7 +91,7 @@ def get_words(raw_details: str) -> List[SpokenWord]:
 
 def extract_recognition(
     file_path: Union[str, Path], language: str = "en-US"
-) -> list[speechsdk.SpeechRecognitionEventArgs]:
+) -> List[speechsdk.SpeechRecognitionEventArgs]:
     settings = SpeechSettings.from_env()
 
     speech_config = speechsdk.SpeechConfig(
@@ -136,7 +136,7 @@ def extract_recognition(
 
 
 def generate_from_events(
-    events: list[speechsdk.SpeechRecognitionEventArgs], output_file_name: str
+    events: List[speechsdk.SpeechRecognitionEventArgs], output_file_name: str
 ) -> None:
     all_words = []
 
@@ -152,7 +152,7 @@ def generate_from_events(
 
 
 def write_transcript_file(
-    events: list[speechsdk.SpeechRecognitionEventArgs],
+    events: List[speechsdk.SpeechRecognitionEventArgs],
     output_file_name: str = "transcript.txt",
 ) -> None:
     with open(output_file_name, mode="wt", encoding="utf8") as output_file:
@@ -161,7 +161,7 @@ def write_transcript_file(
 
 
 def write_events_data(
-    events: list[speechsdk.SpeechRecognitionEventArgs], file_names_prefix: str = ""
+    events: List[speechsdk.SpeechRecognitionEventArgs], file_names_prefix: str = ""
 ) -> None:
     """
     Writes detailed event data
