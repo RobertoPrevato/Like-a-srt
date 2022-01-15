@@ -1,4 +1,7 @@
 ![Build](https://github.com/RobertoPrevato/Like-a-srt/workflows/Build/badge.svg)
+[![pypi](https://img.shields.io/pypi/v/like-a-srt.svg)](https://pypi.python.org/pypi/like-a-srt)
+[![versions](https://img.shields.io/pypi/pyversions/like-a-srt.svg)](https://github.com/RobertoPrevato/like-a-srt)
+[![license](https://img.shields.io/github/license/RobertoPrevato/like-a-srt.svg)](https://github.com/RobertoPrevato/like-a-srt/blob/main/LICENSE)
 
 # Like a SRT
 CLI to generate SRT subtitles automatically from audio files, using [Azure Speech](https://azure.microsoft.com/en-us/services/cognitive-services/speech-services/#overview).
@@ -42,10 +45,8 @@ las gen -s example.wav
 
 ---
 
-### How to generate wav files using ffmpeg
-
-The following example shows how to create a .wav file from a source video
-using [`ffmpeg`](https://www.ffmpeg.org):
+To create a .wav file from a source video, it's possible to use
+[`ffmpeg`](https://www.ffmpeg.org):
 
 ```bash
 ffmpeg -i source.mp4 destination.wav
