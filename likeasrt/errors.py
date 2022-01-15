@@ -1,4 +1,5 @@
-from typing import List
+from pathlib import Path
+from typing import List, Union
 
 
 class CLIError(Exception):
@@ -12,17 +13,14 @@ class InvalidInputError(CLIError):
     Generic exception type for invalid input.
     """
 
-    def __init__(self, message: str) -> None:
-        super().__init__(message)
-
 
 class InputFileNotFoundError(InvalidInputError):
     """
     Exception risen when an expected input file is not found.
     """
 
-    def __init__(self) -> None:
-        super().__init__("File not found")
+    def __init__(self, file_path: Union[str, Path]) -> None:
+        super().__init__(f"File {file_path} not found")
 
 
 class MissingEnvVariableError(CLIError):

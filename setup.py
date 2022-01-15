@@ -1,5 +1,6 @@
-from likeasrt import version
 from setuptools import setup
+
+from likeasrt import version
 
 
 def readme():

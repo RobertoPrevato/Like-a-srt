@@ -192,7 +192,7 @@ def validate_audio_file_path(file_path: Union[str, Path]) -> None:
         )
 
     if not source_file.exists():
-        raise InputFileNotFoundError()
+        raise InputFileNotFoundError(file_path)
 
 
 def generate_srt_from_file(

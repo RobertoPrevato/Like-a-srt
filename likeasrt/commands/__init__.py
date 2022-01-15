@@ -14,7 +14,7 @@ def run(function):
     try:
         function()
     except InvalidInputError as invalid_input:
-        logger.info("%s", invalid_input)
+        logger.error("Error: %s", invalid_input)
         sys.exit(1)
     except CLIError as cli_error:
         logger.error(cli_error)
