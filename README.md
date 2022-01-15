@@ -1,74 +1,52 @@
-![Build](https://github.com/RobertoPrevato/PythonCLI/workflows/Build/badge.svg)
+![Build](https://github.com/RobertoPrevato/Like-a-srt/workflows/Build/badge.svg)
 
-# Python CLI project template
-Python project template for CLI using [click](https://click.palletsprojects.com).
+# Like a SRT
+CLI to generate SRT subtitles automatically from audio files, using [Azure Speech](https://azure.microsoft.com/en-us/services/cognitive-services/speech-services/#overview).
 
-* [pytest](https://docs.pytest.org/en/latest/)
-* [flake8](https://pypi.org/project/flake8/)
-* [black](https://github.com/psf/black) ⚫
-* [mypy](http://mypy-lang.org)
-* [GitHub build workflow](https://help.github.com/en/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration)
-* [Makefile](https://www.gnu.org/software/make/manual/make.html)
-* [setup.py starter file](https://docs.python.org/3/distutils/setupscript.html)
-* [click](https://click.palletsprojects.com)
-* [VS Code project code-workspace](https://code.visualstudio.com)
+```bash
+pip install like-a-srt
+```
+
+![Drawing](https://gist.githubusercontent.com/RobertoPrevato/b9f5162bfe6082876ec2d9811cc554b0/raw/9317c60cd5913c35a24103ef0cfd9c1e8e28c0e8/like-a-srt-800px.png)
 
 ## Getting started
 
-```
-# create Python virtual environment
-python -m venv venv
+**Requirements**
 
-# activate environment (Linux):
-source venv/bin/activate
+* Python 3.9
+* An Azure Speech service
 
-# activate environment (Windows):
-venv\Scripts\activate
+How to use:
+1. configure environmental variables (recommended: create an `.env` file as in
+   the example below)
+2. install the CLI (e.g. installing the package using `pip`, in a Python virtual environment)
+3. generate subtitles in `.srt` format using the command `las gen -s example.wav`
 
-# install dependencies
-pip install -r requirements.txt
-```
+Example `.env` file, to configure the necessary environmental variables:
 
-## Install in development mode
-To test the CLI during development, install it in edit mode:
-
-```
-pip install -e .
+```ini
+SPEECH_SUBSCRIPTION="<YOUR_AZURE_SPEECH_SUBSCRIPTION>"
+SPEECH_ENDPOINT="<YOUR_AZURE_SPEECH_ENDPOINT>"
 ```
 
-Then, use the CLI with:
+Example endpoint value: `https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken`.
 
-```
-foo
-```
+---
 
-## Makefile
+Example: generate a subtitles file `example.srt` from a source file
+`example.wav`:
 
-```
-# run tests:
-make test
-
-# run tests and write test coverage output
-mate testcov
+```bash
+las gen -s example.wav
 ```
 
-Manual releases:
+---
 
-```
-# install dependencies for twine (once)
-make prepforbuild
+### How to generate wav files using ffmpeg
 
-# create distribution package
-make artifacts
+The following example shows how to create a .wav file from a source video
+using [`ffmpeg`](https://www.ffmpeg.org):
 
-# upload to the test pypi
-make testrelease
-
-# upload to pypi
-make release
-```
-
-## Formatting with black
-```
-black .
+```bash
+ffmpeg -i source.mp4 destination.wav
 ```
