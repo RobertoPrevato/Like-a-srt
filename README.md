@@ -39,3 +39,14 @@ Example: generate a subtitles file `example.srt` from a source file
 ```bash
 las gen -s example.wav
 ```
+
+---
+
+### How to generate wav files using ffmpeg
+
+The following example shows how to create a .wav file from a source video
+using [`ffmpeg`](https://www.ffmpeg.org):
+
+```bash
+ffmpeg -i source.mp4 destination.wav
+```
