@@ -41,6 +41,7 @@ setup(
         "click==8.0.3",
         "essentials==1.1.4",
         "azure-cognitiveservices-speech==1.19.0",
+        "python-dotenv==0.19.2",
     ],
     include_package_data=True,
 )
