@@ -29,7 +29,11 @@ setup(
     author_email="roberto.prevato@gmail.com",
     keywords="azure speech srt subtitles automatic generation",
     license="MIT",
-    packages=["likeasrt"],
+    packages=[
+        "likeasrt",
+        "likeasrt.commands",
+        "likeasrt.domain",
+    ],
     entry_points={
         "console_scripts": ["like-a-srt=likeasrt.main:main", "las=likeasrt.main:main"]
     },
